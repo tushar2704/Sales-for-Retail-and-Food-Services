@@ -1,4 +1,4 @@
--- Active: 1689029778133@@127.0.0.1@5432@postgres@public
+-- Active: 1689029778133@@127.0.0.1@5432@retail_sales@retail_sales
 /* 
 © 2023 Tushar Aggarwal. All rights reserved. github.com/tushar2704
 */
@@ -26,3 +26,7 @@ WITH (FORMAT CSV, HEADER);;
 UPDATE retail_sales SET sales = NULL WHERE sales = 0;
 
 SELECT * FROM retail_sales;
+/* 
+© 2023 Tushar Aggarwal. All rights reserved. github.com/tushar2704
+-----------------------------------Loading CSV Completed-------------------------------------------
+*/
