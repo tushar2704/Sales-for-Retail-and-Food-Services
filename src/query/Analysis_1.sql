@@ -22,7 +22,46 @@ SELECT
 FROM
     retail_sales;
 
-/*==============================How many types Industtries are there?===============*/
+/*==============================For year 2022===============*/
+SELECT
+    month, year, kind_of_business, industry, sales
+FROM
+    retail_sales
+WHERE year = 2022;
+
+/*==============================Sales for industrie other than general merchandise===============*/
+SELECT
+    month, year, kind_of_business, industry, sales
+FROM
+    retail_sales
+WHERE industry != 'General Merchandise';
+
+/*==============================Sales more than $100 Billion ==============*/
+SELECT
+    month, year, kind_of_business, industry, sales
+FROM
+    retail_sales
+WHERE sales >100000;
+/*==============================Sales more than $100 Billion in 2022 ==============*/
+SELECT
+    month, year, kind_of_business, industry, sales
+FROM
+    retail_sales
+WHERE sales >100000 AND year =2022;
+
+/*==============================Sales for January 2022 ==============*/
+SELECT
+    month, year, kind_of_business, industry, sales
+FROM
+    retail_sales
+WHERE month =1 AND year =2022;
+
+/*==============================Sales for January 2022 ==============*/
+
+
+
+
+
 
 
 
