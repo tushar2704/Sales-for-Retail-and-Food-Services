@@ -123,7 +123,273 @@ SELECT AVG(sales) AS AVG_Sales
 FROM retail_sales
 WHERE month=1 AND year=2022;
 
+--What is the minimum sale amount in the Automotive industry in March 2020?
+SELECT *
+
+FROM
+    retail_sales
+WHERE month =3 AND year =2020 AND industry LIKE 'Automotive%'
+ORDER BY sales;
+
+--What is the maximum sale amount in the automotive industry in March 2020?
+SELECT MAX(sales) AS MAX_Sales
+
+FROM retail_sales
+WHERE month=3 AND YEAR=2020 AND industry LIKE 'Automotive%';
+
+--What was the max sale by industry in march 2020?
+SELECT industry, MAX(sales) as Max_Sales
+from retail_sales
+WHERE month=3 AND year=2020
+GROUP BY industry
+ORDER BY Max_Sales DESC ;
+
+--average sale by industry for march 2020:
+SELECT industry, AVG(sales)::numeric(10,2) AS avg_sales
+
+FROM retail_sales
+WHERE month=3 AND year=2020
+GROUP BY industry
+
+ORDER BY AVG_Sales DESC;
+
+--What is the all-time average sale by businesses?
+
+SELECT kind_of_business, AVG(sales)::numeric(10,2) AS avg_sales
+
+FROM retail_sales
+GROUP BY kind_of_business
+ORDER BY AVG_Sales DESC;
+
 --
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
