@@ -56,16 +56,74 @@ FROM
     retail_sales
 WHERE month =1 AND year =2022;
 
-/*==============================Sales for January 2022 ==============*/
+/*==============================Sales for January 2022, 2021, 2020, 2019 ==============*/
+SELECT
+    month, year, kind_of_business, industry, sales
+FROM
+    retail_sales
+WHERE month =1 AND year IN (2022, 2021, 2020, 2019);
 
+/*============================== Businesses start with A ==============*/
+SELECT
+    DISTINCT(kind_of_Business)
+FROM 
+    retail_sales
+WHERE 
+    kind_of_business LIKE 'A%';
 
+/*==============================Businesses in Home industry ==============*/
+SELECT
+    DISTINCT industry
+FROM 
+    retail_sales
+WHERE industry LIKE '%Home%';
 
+/*==============================Sales is Null ==============*/
+SELECT
+    year, kind_of_business, industry, sales
+FROM
+    retail_sales
+WHERE sales IS NULL;
 
+/*==============================Top Sales in Industry ==============*/
+SELECT
+    *
+FROM
+    retail_sales
+WHERE sales IS NOT NULL
+ORDER BY sales DESC;
 
+/*==============================Which business kind had highest sales in Jan 2022==============*/
+SELECT
+    month, year, kind_of_business, industry, sales
+FROM retail_sales
+WHERE year=2022 AND month =1 AND sales is NOT NULL
+ORDER BY sales DESC;
 
+/*==============================Which business kind had lowest sales for all years==============*/
+SELECT *
+FROM
+    retail_sales
+WHERE sales IS NOT NULL
+ORDER BY sales;
 
+/*==============================What were the total sales, in dollars, of used car dealers in January 2022?
+==============*/
+SELECT 
+    SUM(sales)
+FROM
+    retail_sales
+WHERE
+    month = 1 AND year = 2022
+        AND kind_of_business LIKE 'used car%';
 
+--What was the average sale in January 2022 of all data?
+SELECT AVG(sales) AS AVG_Sales
 
+FROM retail_sales
+WHERE month=1 AND year=2022;
+
+--
 
 
 
