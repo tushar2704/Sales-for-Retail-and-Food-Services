@@ -161,12 +161,54 @@ FROM retail_sales
 GROUP BY kind_of_business
 ORDER BY AVG_Sales DESC;
 
---
+--Which businessesâ€™ all-time average sale was above 10 billion dollars?
+SELECT kind_of_business, AVG(sales)
+FROM retail_sales
+GROUP BY kind_of_business
+HAVING AVG(sales) > 10000
+ORDER BY AVG(sales) DESC;
+
+---- PART 3: SQL ANALYSIS:
+-- 1) Which industry had the highest sales revenue for 2022?
+--To answer this question, 
+-- 1) we need to find the total sales grouped by industry. 
+-- 2) We also need to filter year to 2022 since the question is asking about 2022 only. 
+-- 3) We need to order by the sum of sales in descending order to easily see the highest sales on top:
+
+SELECT industry, SUM(sales) as revenue
+
+FROM
+    retail_sales
+WHERE year=2022
+GROUP BY industry
+ORDER BY revenue DESC;
+
+---- auto industry consists of 5 businesses
+SELECT DISTINCT(kind_of_business), Sum(sales)
+FROM retail_sales
+WHERE industry = 'Automotive'
+GROUP BY kind_of_business
+ORDER BY Sum(sales);
+
+--office supplies and gifts industry consists of 
+SELECT DISTINCT(kind_of_business), SUM(SALES)
+FROM retail_sales
+Where industry LIKE 'Office Supplies & Gifts'
+GROUP BY kind_of_business
+ORDER BY SUM(SALES) DESC;
+
+--Which kind of businesses within the automotive industry had the highest sales revenue for 2022?
+-- kob in automotive, highest sales revenue in 2022
+
+SELECT DISTINCT(kind_of_business), SUM(sales) Revenue
+FROM
+    retail_sales
+WHERE year=2022 AND sales IS NOT NULL AND industry LIKE 'Automotive%'
+GROUP BY kind_of_business
+ORDER BY Revenue DESC;
 
 
-
-
-
+--What is the contribution percentage of each business in the automotive industry this year?
 
 
 
