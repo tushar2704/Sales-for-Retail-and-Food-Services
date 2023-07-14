@@ -209,16 +209,128 @@ ORDER BY Revenue DESC;
 
 
 --What is the contribution percentage of each business in the automotive industry this year?
+--total % of contribution of kob in automotive business in 2022
 
+--1 total sale by industry
+SELECT SUM(sales) total_revenue
 
+FROM retail_sales
+WHERE year=2022 AND industry like 'Automotive%'
+GROUP BY industry
+ORDER BY total_revenue;
 
+--2 % contribution manually
+SELECT kind_of_business, sum(sales)/5624235*100 percent
 
+FROM retail_sales
+WHERE year=2022 AND industry like 'automotive%'
+GROUP BY kind_of_business
+ORDER BY percent;
 
+--subquery way
+SELECT
+    kind_of_business, SUM(Sales)/(SELECT SUM(sales) total_revenue
+                                    FROM retail_sales
+                                    WHERE year=2022 AND industry like 'Automotive%' and sales is not null
+                                    GROUP BY industry
+                                    ORDER BY total_revenue) *100 as percent
 
+FROM retail_sales
+WHERE year=2022 AND industry ='Automotive' AND sales is not null
+GROUP BY kind_of_business
+ORDER BY percent;
 
+-- How has the sales revenue changed over time for the Motor vehicle and parts dealers?
 
+-- To answer this question:
+-- First, we need the total sales grouped by year
+-- Second, we need to filter data so that the kind of business equals motor vehicle and parts dealers:
 
+-- total sales grouped by YEAR
+SELECT year,SUM(sales) as total_sales
+FROM retail_sales
+WHERE kind_of_business LIKE 'Motor vehicle and parts dealers%'
+GROUP BY year
+ORDER BY total_sales DESC;
 
+-- 5) How much did Motor Vehicles and Parts Dealers experience a month-over-month growth rate in 2020?
+-- To answer this question:
+-- Select the previous month and current month by using self-join. 
+-- We need to filter this table to the year 2022 and the kind of business to motor vehicle and parts dealers
+-- Calculate the growth rate using the formula (current - previous)/previous *100:
+
+--Selecting previous and current month usine self JOIN
+
+SELECT curr.month,prev.month
+
+FROM retail_sales curr
+JOIN retail_sales prev on curr.month=prev.month+1 
+    AND curr.year=prev.year AND curr.kind_of_business=prev.kind_of_business
+where curr.year=2020 AND curr.kind_of_business='Motor vehicle and parts dealers';
+
+--growth rate  (prev-curr)*prev*100
+SELECT curr.month as currrent_month,prev.month as previous_month,
+        (curr.sales-prev.sales) / prev.sales * 100 as growth_rate
+
+FROM retail_sales curr
+JOIN retail_sales prev on curr.month=prev.month+1 
+    AND curr.year=prev.year AND curr.kind_of_business=prev.kind_of_business
+where curr.year=2020 AND curr.kind_of_business='Motor vehicle and parts dealers'
+ORDER BY growth_rate DESC;
+
+--Which businesses have the highest total sales revenue for the Food & Beverage industry for each year?
+
+-- To answer this question,
+-- we first need to find the yearly total sales of each business in the Food & Beverage industry. 
+	-- Total sales grouped by kind_of_business and year
+	-- Filter data so that industry = â€˜Food & Beverageâ€™
+
+-- Next, we need to get the maximum total sale for each year for each business within the Food and beverage industry
+	-- Maximum of total sales grouped by year
+	-- And kind_of_business that this maximum of total sales belongs to.
+
+--yearly total sales for Food & Beverage
+
+SELECT kind_of_business,year, SUM(sales) as total_sales
+
+from retail_sales
+Where industry like 'Food & Beverage%'
+GROUP BY 1,2
+;
+
+--cte
+with total_sales as(
+    SELECT kind_of_business, year, SUM(sales) sum_sales
+    from retail_sales
+    Where industry='Food & Beverage'
+    GROUP BY 1,2);
+
+-- this is where we select the maximum sales
+select year, MAX(sales)
+from retail_sales
+GROUP BY 1;
+
+--
+with total_sales as(
+    SELECT 
+        kind_of_business, year, SUM(sales) sum_sales
+    from retail_sales
+    Where industry='Food & Beverage'
+    GROUP BY 1,2),
+
+    top_sales as(
+        SELECT 
+            year, MAX(sum_sales) as max_sales
+        from total_sales
+        GROUP BY 1)
+
+SELECT 
+    cte1.year, cte1.kind_of_business, max_sales
+FROM top_sales as cte2
+Join total_sales as cte1 
+    on cte1.sum_sales=cte2.max_sales and cte1.year=cte2.year;
+
+--
 
 
 
