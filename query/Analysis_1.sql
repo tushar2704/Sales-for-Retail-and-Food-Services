@@ -368,21 +368,110 @@ group by 1
 
 )
 
-SELECT curr.industry, (current_revenue-prev_revenue)/prev_revenue *100 as growth_rate
+SELECT curr.industry, (current_revenue-prev_revenue) / (prev_revenue) *100 as growth_rate
 from revenue_2019 prev
 join revenue_2020 curr on prev.industry=curr.industry
 ORDER BY growth_rate;
 
 
 --
+--What are the year-over-year growth rates for each industry per year?
+-- To answer this question:
+-- First, we need the sum of sales by year and the industry.
+-- Second, we can use this above query as a temporary table. 
+	-- we can do a self-join, so we can have the current year and the previous year together as we did in question 5.
 
 
+-- sum of sales by YEAR
+select year, industry, sum(sales) as sales_sum
+from retail_sales
+GROUP BY 1,2;
+
+--
+
+with total_sales as(select year, industry, sum(sales) as sales_sum
+from retail_sales
+GROUP BY 1,2)
+
+SELECT curr.industry, prev.year as previous_year, curr.year as current_year,
+    (curr.sales_sum - prev.sales_sum) / prev.sales_sum * 100 as YoY
+
+from total_sales as curr
+join total_sales as prev
+   on curr.year=prev.year+1 AND curr.industry=prev.industry
+ORDER BY industry, curr.year DESC;
 
 
+--What are the yearly total sales for womenâ€™s clothing stores and menâ€™s clothing stores?
+-- Write a case statement to return both total sales in the same table
+
+SELECT year,
+sum(CASE WHEN kind_of_business = "Women's clothing stores" THEN sales ELSE 0 END) as women_sales,
+sum(CASE WHEN kind_of_business = "Men's clothing stores" THEN sales ELSE 0 END) as men_sales
+FROM retail_sales
+GROUP BY 1;
+
+--What is the yearly ratio of total sales for women's clothing stores to total sales for men's clothing stores?
+
+-- To answer this question, 
+-- we can use our above query as our table with a subquery, 
+-- and from that table, we can select womens_sales divided by mens_sales to find the ratio. 
+
+--subquery
+SELECT year,
+sum(CASE WHEN kind_of_business = "Women's clothing stores" THEN sales ELSE 0 END) as women_sales,
+sum(CASE WHEN kind_of_business = "Men's clothing stores" THEN sales ELSE 0 END) as men_sales
+FROM retail_sales
+GROUP BY 1;
+
+--main query
+SELECT year, women_sales/men_sales as Women_to_Men_rario
+from (SELECT year,
+sum(CASE WHEN kind_of_business = "Women's clothing stores" THEN sales ELSE 0 END) as women_sales,
+sum(CASE WHEN kind_of_business = "Men's clothing stores" THEN sales ELSE 0 END) as men_sales
+FROM retail_sales
+GROUP BY 1;
+
+) as sales;
+
+--What is the year-to-date total sale of each month for 2019, 2020, 2021, and 2022 for the womenâ€™s clothing stores?
+-- to answer this question, we are going to use window functions
+SELECT month, year, 
+    sum(sales) over (PARTITION BY year ORDER BY month) as ytd_sales
+from retail_sales
+WHERE retail_sales.kind_of_business="Women's clothing stores" AND year in(2019, 2020, 2021,2022)
+ORDER BY year desc , month desc;
+
+--with subquery
+
+select rs.month, rs.year, rs.sales,
+((SELECT SUM(sales) 
+        FROM retail_sales rs2 
+        WHERE rs2.year = rs.year AND rs2.month <= rs.month AND rs2.kind_of_business = 'Women\'s clothing stores') AS ytd_sales
+) 
+from retail_sales as rs
+WHERE rs.kind_of_business = 'Women\'s clothing stores' AND rs.year IN (2019, 2020, 2021, 2022);
+
+--What is the month-over-month growth rate of womenâ€™s clothing businesses in 2022?
+
+-- To answer this question
+-- We need the current month sales and previous month sales to calculate mom growth rate.
+-- The final table returns the month, current monthly sale, which are already available in the data 
+-- and it returns the growth rate, which is current - previous/previous. 
+	-- We can calculate the previous month's sales with a window function using the LAG() function instead of SUM(). 
+    -- The lag function returns the previous value
+select month, sales as current_sales, -- now we want the sales from 1 previous period
+lag(sales, 1) over (order by month) as prev_sales
+from retail_sales
+where kind_of_business ='Women\'s clothing stores' and year =2022;
 
 
-
-
+-- growth rate
+select month, sales as current_sales,
+lag(sales, 1) over (order by month) as prev_sales,
+(sales - lag(sales, 1) over (order by month))/lag(sales, 1) over (order by month) *100 as growth_rate
+from retail_sales
+where kind_of_business ='Women\'s clothing stores' and year =2022;
 
 
 
