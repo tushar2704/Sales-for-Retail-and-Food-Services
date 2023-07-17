@@ -331,14 +331,50 @@ Join total_sales as cte1
     on cte1.sum_sales=cte2.max_sales and cte1.year=cte2.year;
 
 --
+--What is the revenue change in percentage for each industry from 2019 to 2020?
+-- To answer this question,
+-- first, we need the sum of sales for each industry for 2019 as the previous year and 2020 as the current year. 
+	-- 	We need sum of sales grouped by industry for the year of 2019. This will be the previous year total sales
+	-- We need the sum of sales grouped by industry for the year 2020. This will be the current industry 
+-- Second, after having both previous and current year sales, we can calculate the growth rate with (current - previous)/previous multiplied by 100. 
+	-- Create a CTE for sales in 2019 and create another CTE for sales in 2020
+	-- Join these two CTEs to get the current and previous year sales
 
 
+--cte1
+SELECT industry, sum(sales)
+from retail_sales
+where year=2019
+GROUP BY 1;
+
+--cte2
+select industry, sum(sales)
+from retail_sales
+where year =2020
+group by 1;
+
+--revennue CHANGE
+
+WITH revenue_2019 as(SELECT industry, sum(sales) prev_revenue
+from retail_sales
+where year=2019
+GROUP BY 1
+
+),
+revenue_2020 as(select industry, sum(sales) current_revenue
+from retail_sales
+where year =2020
+group by 1
+
+)
+
+SELECT curr.industry, (current_revenue-prev_revenue)/prev_revenue *100 as growth_rate
+from revenue_2019 prev
+join revenue_2020 curr on prev.industry=curr.industry
+ORDER BY growth_rate;
 
 
-
-
-
-
+--
 
 
 
