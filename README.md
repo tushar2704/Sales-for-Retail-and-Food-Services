@@ -97,45 +97,7 @@
 
 
 
-## Business Quries:
----
 
-1)What are the top-performing industries in terms of sales for a given year, and how do their sales compare month-over-month?
-
-
-
-Analysis Report: Top-Performing Industries Sales Month-over-Month
-
-Introduction:
-In this analysis, we aimed to identify the top-performing industries in terms of sales for a given year and compare their sales month-over-month. We used a PostgreSQL query to extract the necessary data from the "retail_sales" table for the specified year. The goal is to provide insights into the industries that demonstrated exceptional sales performance throughout the year and understand how their sales evolved on a monthly basis.
-
-Data Source:
-The data used for this analysis was sourced from the "retail_sales" table, which contains information on sales for different industries over multiple years. The dataset consists of columns such as year, month, industry, and sales, among others.
-
-Methodology:
-
-Data Preparation: We started by creating a PostgreSQL query that calculates the total sales for each industry in the specified year and groups the data by month. The result was stored in a Common Table Expression (CTE) named "monthly_sales."
-
-Ranking the Industries: To identify the top-performing industries each month, we used another CTE named "top_industries" to rank the industries based on their total sales. The RANK() function assigned a rank of 1 to the industry with the highest sales for each month.
-
-Final Result: The main query then selected the year, month, industry, and total sales for the industries that achieved the top rank in their respective months. This final dataset will provide valuable insights into the sales performance of the top industries month-over-month.
-
-Results and Insights:
-Based on our analysis, here are the key insights:
-
-Top-Performing Industries: The analysis identified the industries that ranked first in terms of sales for each month in the specified year. These industries demonstrated consistent and outstanding sales performance throughout the year.
-
-Sales Comparison: By comparing the sales of the top-performing industries month-over-month, we can observe any patterns, trends, or seasonality in their sales figures. This will help stakeholders understand the industries' growth trajectory and identify potential areas for improvement or investment.
-
-Identifying Growth Opportunities: The analysis enables decision-makers to identify growth opportunities by focusing on industries that consistently outperformed their peers. Understanding the factors contributing to their success can inform strategic decisions for the future.
-
-Data Visualization:
-To further enhance the presentation of our findings, we recommend visualizing the results using Tableau. Creating interactive charts, graphs, and dashboards in Tableau will make it easier for stakeholders to explore and comprehend the sales trends of top-performing industries month-by-month.
-
-Conclusion:
-In conclusion, this analysis provides valuable insights into the top-performing industries in terms of sales for the specified year and their sales performance month-over-month. Understanding which industries performed exceptionally well and analyzing their sales patterns can inform strategic decision-making and help identify growth opportunities. The Tableau dashboard will present these insights in an interactive and user-friendly format, enabling stakeholders to explore the data and make data-driven decisions effectively.
-
----
 
 
 
