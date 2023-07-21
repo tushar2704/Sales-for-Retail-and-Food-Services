@@ -21,10 +21,10 @@ CREATE TABLE retail_sales (
 
 COPY retail_sales 
 FROM 'D:\Sales-for-Retail-and-Food-Services\src\data\us_monthly_retail_sales.csv'
-WITH (FORMAT CSV, HEADER);;
+WITH (FORMAT CSV, HEADER);
 
 UPDATE retail_sales SET sales = NULL WHERE sales = 0;
-
+--Checking for whole Table
 SELECT * FROM retail_sales;
 /* 
 © 2023 Tushar Aggarwal. All rights reserved. github.com/tushar2704
