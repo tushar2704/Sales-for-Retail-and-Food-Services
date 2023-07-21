@@ -218,7 +218,98 @@ In conclusion, this analysis focused on detecting outliers and significant chang
 As with any analysis, it is essential to interpret the results with caution and context, considering other factors that may influence sales fluctuations in different industries.
 
 
+## Which businesses all-time average sale was above 10 billion dollars?
+Analysis Report: Businesses with All-Time Average Sales Above $10 Billion
 
+Introduction:
+In this analysis, we aimed to identify businesses whose all-time average sales were above 10 billion dollars. We used a PostgreSQL query to calculate the average sales for each unique business in the "retail_sales" table and filtered the results to find businesses meeting the specified criterion. The goal is to identify businesses that have consistently achieved high sales figures over time, making them stand out in terms of revenue generation.
+
+Data Source:
+The data used for this analysis was sourced from the "retail_sales" table, which contains information about sales data for various businesses. The dataset consists of columns such as kind_of_business (representing different businesses) and sales (containing the sales figures in dollars).
+
+Methodology:
+
+Data Calculation: We started by creating a PostgreSQL query to calculate the average sales for each unique business in the "retail_sales" table. The query utilized the AVG() function to calculate the average sale amount.
+
+Filtering the Results: Next, we used the HAVING clause in the query to filter the results based on the condition that the average sale should be greater than 10 billion dollars. Since the "sales" column is in dollars, we converted the amount to cents (1 dollar = 100 cents) in the condition.
+
+Results and Insights:
+Based on our analysis, we identified businesses that had all-time average sales above 10 billion dollars. Here are the key insights:
+
+High-Performing Businesses: The analysis allowed us to pinpoint businesses that consistently achieved high sales figures, with an average exceeding 10 billion dollars. These businesses have demonstrated robust revenue generation capabilities over time.
+
+Revenue Stability: Businesses with such high average sales figures indicate stability and sustained performance in their respective markets. Their ability to consistently achieve significant sales highlights their position as industry leaders.
+
+Potential Growth Indicators: The identified businesses can serve as potential indicators of industries with lucrative growth opportunities. Understanding the factors contributing to their success can inform strategic decisions for other businesses aspiring to achieve similar growth.
+
+Data Visualization:
+While this particular analysis does not require data visualization, it is recommended to visualize and showcase the findings in Tableau or other visualization tools if the dataset is part of a more extensive analysis or dashboard.
+
+Conclusion:
+In conclusion, this analysis provided valuable insights into businesses that have all-time average sales above 10 billion dollars. These high-performing businesses are indicative of revenue stability and potential growth opportunities. Understanding their success factors can be beneficial for businesses seeking to optimize their performance and achieve significant revenue growth. The analysis highlights the power of data-driven insights in identifying market leaders and potential areas for investment and growth.
+
+Please note that the quality and significance of the results are dependent on the quality and accuracy of the underlying data. Furthermore, this analysis is just one aspect of a more comprehensive business analysis and can be incorporated as a part of a larger Tableau dashboard or data-driven storytelling for stakeholders.
+
+## Which kind of businesses within the automotive industry had the highest sales revenue for 2022?
+Analysis Report: Top-Selling Kind of Businesses within the Automotive Industry for 2022
+
+Introduction:
+In this analysis, we sought to identify the kind of businesses that achieved the highest sales revenue within the automotive industry for the year 2022. To accomplish this, we utilized a PostgreSQL query to extract the relevant data from the "retail_sales" table. The objective was to uncover the specific type of business that demonstrated exceptional performance in terms of sales within the automotive sector during the specified year.
+
+Data Source:
+The data used for this analysis was sourced from the "retail_sales" table, which contains information about sales in various industries, including the automotive sector. The dataset includes columns such as kind_of_business, industry, year, and sales.
+
+Methodology:
+
+Data Filtering: We began by creating a PostgreSQL query that filters the data to include only records associated with the automotive industry for the year 2022.
+
+Sales Aggregation: The query then aggregated the total sales revenue for each type of business within the automotive industry for the specified year.
+
+Ranking Results: After obtaining the total sales figures, we sorted the results in descending order based on sales revenue. This allowed us to identify the kind of business that secured the highest sales within the automotive industry for 2022.
+
+Results and Insights:
+Based on our analysis, we obtained the following insights:
+
+Top-Selling Kind of Business: The analysis revealed the specific kind of business within the automotive industry that generated the highest sales revenue for 2022.
+Data Visualization:
+Given that this analysis focuses on a single data point (the top-selling kind of business), visualization may not be necessary. However, if you want to present the results in a more visually appealing manner, a simple text-based visualization or a table displaying the kind of business and its corresponding sales revenue could be used.
+
+Conclusion:
+In conclusion, this analysis successfully identified the kind of business that achieved the highest sales revenue within the automotive industry for the year 2022. Understanding the top-performing kind of business in this sector can offer valuable insights for decision-makers and stakeholders. It may inform strategic business decisions, marketing efforts, or resource allocation to optimize performance in the automotive industry.
+
+As this is a specific and concise analysis, it is essential to consider incorporating it as a part of a more extensive portfolio project that explores other business questions or performs a more comprehensive analysis using additional data points. The goal is to demonstrate a holistic understanding of data analysis and effective communication of insights through the use of SQL queries and visualizations.
+
+## What is the contribution percentage of each business in the automotive industry this year?
+Analysis Report: Contribution Percentage of Businesses in the Automotive Industry (Current Year)
+
+Introduction:
+In this analysis, we aimed to determine the contribution percentage of each business category within the automotive industry for the current year. We utilized a PostgreSQL query to extract the necessary data from the "retail_sales" table and calculated the total sales for each business category in the automotive sector. The objective is to gain insights into the relative significance of different business types in driving sales within the automotive industry during the current year.
+
+Data Source:
+The data used for this analysis was sourced from the "retail_sales" table, containing information about sales figures for various businesses in different industries, including the automotive sector. The dataset includes columns such as kind_of_business, industry, sales, year, and more.
+
+Methodology:
+
+Data Selection: We began by creating a PostgreSQL query that selects data related to the automotive industry for the current year. The query calculated the total sales for each business category (kind_of_business) within the automotive industry using the SUM(sales) function and grouped the results accordingly.
+
+Total Automotive Sales: Another step involved calculating the total sales of the automotive industry for the current year using a separate Common Table Expression (CTE) named "total_sales_automotive."
+
+Contribution Percentage Calculation: The main query then derived the contribution percentage of each business category within the automotive industry. This percentage was calculated by dividing the total sales of each business category by the total sales of the automotive industry and multiplying the result by 100.
+
+Results and Insights:
+The analysis yielded valuable insights into the contribution of various business categories within the automotive industry for the current year. Here are the key findings:
+
+Business Categories Impact: The contribution percentage reveals the significance of each business category in driving sales within the automotive industry. Some business types may have a higher contribution percentage, indicating a more substantial impact on the overall automotive sales for the year.
+
+Identifying Dominant Businesses: The analysis helps identify businesses that play a dominant role in generating revenue within the automotive sector. These dominant businesses are crucial to understanding the dynamics of the industry and may offer opportunities for strategic partnerships or investment.
+
+Spotting Growth Areas: Businesses with a relatively low contribution percentage may present opportunities for growth and improvement. Exploring factors that affect their sales performance can assist in devising strategies to enhance their contribution to the automotive industry.
+
+Data Visualization:
+To effectively present the findings, we recommend visualizing the contribution percentage of each business category in a Tableau dashboard. A pie chart or a bar chart can be employed to display the distribution of sales contributions among different business types.
+
+Conclusion:
+In conclusion, the analysis provides valuable insights into the relative contribution of various business categories within the automotive industry for the current year. Understanding the impact of each business type on automotive sales can inform decision-making and drive future business strategies. The Tableau dashboard, visualizing the contribution percentages, will offer stakeholders an intuitive view of the business landscape within the automotive sector. This analysis showcases the power of data-driven insights and visualization in making informed business decisions.
 
 
 

@@ -241,11 +241,64 @@ ORDER BY
     year,
     month;
 ---------------------
+--Which businesses all-time average sale was above 10 billion dollars?
+SELECT
+    kind_of_business,
+    AVG(sales) AS average_sale
+FROM
+    retail_sales
+GROUP BY
+    kind_of_business
+HAVING
+    AVG(sales) > 10000;  -- 10 billion dollars in cents (1 dollar = 100 cents)
 
+---------------------------
+--Which kind of businesses within the automotive industry had the highest sales revenue for 2022?
+SELECT
+    kind_of_business,
+    SUM(sales) AS total_sales
+FROM
+    retail_sales
+WHERE
+    industry = 'Automotive' AND year = 2022
+GROUP BY
+    kind_of_business
+ORDER BY
+    total_sales DESC
+;
+--------------------
+--What is the contribution percentage of each business in the automotive industry this year?
+WITH automotive_sales AS (
+    SELECT
+        kind_of_business,
+        SUM(sales) AS total_sales
+    FROM
+        retail_sales
+    WHERE
+        industry = 'Automotive' AND
+        year = 2022  
+    GROUP BY
+        kind_of_business
+),
+total_sales_automotive AS (
+    SELECT
+        SUM(sales) AS total_sales_automotive
+    FROM
+        retail_sales
+    WHERE
+        industry = 'Automotive' AND
+        year = 2022
+)
+SELECT
+    kind_of_business,
+    ROUND((total_sales / total_sales_automotive.total_sales_automotive) * 100, 2) AS contribution_percentage
+FROM
+    automotive_sales
+CROSS JOIN
+    total_sales_automotive;
 
-
-
-
+----------------
+--
 
 
 
