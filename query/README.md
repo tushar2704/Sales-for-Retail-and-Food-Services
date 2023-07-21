@@ -151,7 +151,71 @@ The analysis of seasonality in sales for specific industries and their month-ove
 
 Remember to present a coherent and engaging story in your analysis report, and use the Tableau dashboard to demonstrate the findings visually. Good luck with your project, and if you have any more questions or need further assistance, feel free to ask!
 
-##
+##  Business Question 4: How does the sales distribution vary among industries based on their North American Industry Classification System (NAICS) codes?
+
+Analysis Report: Sales Distribution among Industries based on NAICS Codes
+
+Introduction:
+In this analysis, we explored the sales distribution among industries based on their North American Industry Classification System (NAICS) codes. By using a PostgreSQL query, we extracted data from the "retail_sales" table, containing information on sales for different industries. The goal of this analysis is to understand how sales are distributed across various industries, providing insights into the performance of each industry category.
+
+Data Source:
+The data used for this analysis was sourced from the "retail_sales" table, which consists of columns such as naics_code, industry, and sales. The naics_code column contains the North American Industry Classification System codes that categorize businesses, while the industry column provides the names or descriptions of each industry. The sales column holds the sales figures associated with each industry record.
+
+Methodology:
+We utilized a PostgreSQL query to aggregate the data and calculate the total sales for each combination of NAICS code and industry. The analysis aimed to present the sales distribution among different industry categories, allowing stakeholders to identify the industries with the highest sales figures and observe how they compare to others.
+
+Results and Insights:
+Based on our analysis, here are the key insights:
+
+Top-performing Industries: The query's results showcase industries with the highest total sales, allowing stakeholders to identify the top-performing sectors based on their NAICS codes. These industries are critical revenue generators for the overall retail and food services sector.
+
+Sales Variation among Industries: The analysis provides a comprehensive view of how sales are distributed across various industries. Some industries may dominate the market with significantly higher sales, while others may have comparatively lower sales figures.
+
+Industry Segmentation: By grouping the data based on NAICS codes, stakeholders can better understand the segmentation of industries in the retail and food services sector. This classification helps in identifying distinct business categories and making strategic decisions accordingly.
+
+Opportunities and Challenges: The sales distribution analysis allows stakeholders to identify potential growth opportunities in industries with untapped potential. Additionally, it can highlight industries that face challenges in attracting customers or increasing sales.
+
+Data Visualization:
+To effectively communicate these insights, we recommend creating an interactive Tableau visualization. Pie charts, bar graphs, or treemaps can be used to visually represent the sales distribution across industries based on their NAICS codes. The interactive dashboard will allow stakeholders to explore the data and gain deeper insights into the performance of each industry category.
+
+Conclusion:
+The analysis of sales distribution among industries based on NAICS codes provides valuable insights into the performance of various business categories within the retail and food services sector. Understanding which industries contribute the most to total sales and how sales are distributed allows stakeholders to make informed decisions and identify growth opportunities. The Tableau dashboard, showcasing the sales distribution across industries, will enable stakeholders to explore the data interactively and draw meaningful conclusions for strategic planning.
+
+
+## Business Question 5: Are there any outliers or significant changes in sales for specific industries during particular months or years?
+
+Analysis Report: Outliers and Significant Changes in Sales for Specific Industries
+
+Introduction:
+In this analysis, we aimed to identify any outliers or significant changes in sales for specific industries during particular months or years. We used a PostgreSQL query to detect instances where the sales for a given month in an industry deviate significantly from the sales of its adjacent months. The goal is to investigate and gain insights into unusual sales patterns or potential anomalies that may require further examination.
+
+Data Source:
+The data used for this analysis was sourced from the "retail_sales" table, which contains information on sales for various industries over multiple years. The dataset consists of columns such as industry, year, month, and sales, among others.
+
+Methodology:
+
+Data Preparation: We utilized a PostgreSQL query that incorporates the LAG() and LEAD() window functions to retrieve the previous month's and next month's sales values for each industry, respectively.
+
+Detecting Outliers: The subquery sales_analysis calculated the lagged and lead sales values for each industry, year, and month. The main query then filtered records where the sales for a specific month were significantly higher than 1.5 times the previous month's sales or the next month's sales.
+
+Results: The final result displayed the industry, year, month, and sales for instances where outliers or significant changes in sales were identified.
+
+Results and Insights:
+Based on our analysis, here are the key insights:
+
+Outliers Identification: The analysis successfully identified instances where sales for specific industries exhibited abnormal spikes or drops compared to adjacent months. These identified points may indicate potential outliers or periods of exceptional sales performance.
+
+Potential Anomalies: The detected outliers and significant changes in sales may warrant further investigation to understand the underlying factors that contributed to such fluctuations. Exploring these anomalies can help identify any external influences, seasonality, or unforeseen events affecting sales.
+
+Industry-Specific Patterns: By analyzing the outliers within specific industries, we can observe patterns unique to each sector. Understanding these patterns can aid in making data-driven decisions and devising strategies for future sales planning.
+
+Data Visualization:
+To enhance the presentation of our findings, we recommend visualizing the results using Tableau. Creating interactive line charts or scatter plots in Tableau will provide a clear visualization of the identified outliers, allowing stakeholders to delve deeper into the data and explore the sales patterns effectively.
+
+Conclusion:
+In conclusion, this analysis focused on detecting outliers and significant changes in sales for specific industries during particular months or years. By pinpointing these instances, we gained valuable insights into potential anomalies and unique industry-specific patterns. Investigating these identified points further can facilitate decision-making and help stakeholders understand the drivers of exceptional sales performance or areas that require attention. The Tableau dashboard will present these insights visually, enabling stakeholders to explore the data and make informed decisions based on the analysis.
+
+As with any analysis, it is essential to interpret the results with caution and context, considering other factors that may influence sales fluctuations in different industries.
 
 
 
