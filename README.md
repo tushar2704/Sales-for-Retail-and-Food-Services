@@ -46,23 +46,14 @@ This project aims to analyze and visualize the sales data for Retail and Food Se
 
 
 
-## Dataset Overview
+## Dataset
+The dataset used in this project contains historical sales data for Retail and Food Services in the U.S.A. The data has been collected from the U.S. government website, which ensures its authenticity and reliability. The dataset includes information such as NAICS code, category, sales figures, geographical regions, and time period (e.g., monthly or yearly).
 
-Dataset contains valuable information that could help us optimize our operations, boost sales, and enhance customer satisfaction. Here's a quick rundown of what you can expect from the dataset:
-- Date and Time: We have meticulously recorded the date and time of each order, allowing us to analyze customer behavior and identify potential peak hours.
-- Pizza Details: Each entry includes comprehensive details about the pizzas ordered, including their types, sizes, quantities, prices, and the tantalizing ingredients that create an unforgettable culinary experience.
+## Database
+To facilitate data management and analysis, a SQL database has been created to store the dataset. SQL provides a robust and efficient way to query and manipulate the data. The database schema has been designed to ensure proper organization and ease of use. The structure of the database enables seamless integration with various data visualization tools.
 
-## Analysis
-
-
-
-1. **Customer Traffic Analysis**: Uncovering how many customers visits each day and exploring  whether certain times of day experience higher footfall. 
-
-2. **Bestselling Pizzas**: Analyzing the data to find out which pizzas are the most popular among our customers. Identifying bestsellers can inform our marketing strategies and help us focus on promoting these crowd favorites.
-
-3. **Revenue and Seasonality**: Calculating  the total revenue generated over the year to get an overall picture of our financial performance. Additionally, investigating  whether there are any seasonal patterns in sales to plan for peak and slow periods.
-
-4. **Menu Optimization and Promotions**: Using the data to identify pizzas that are underperforming or receiving little attention. 
+## Data Processing
+The data obtained from the U.S. government website might require some preprocessing to clean and transform it into a suitable format for analysis. SQL queries have been utilized to clean, filter, and transform the data as necessary. This ensures that the data used for the dashboard is accurate and reliable.
 
 ## Key Questions Explored
 
