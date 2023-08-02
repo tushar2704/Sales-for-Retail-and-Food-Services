@@ -55,56 +55,44 @@ To facilitate data management and analysis, a SQL database has been created to s
 ## Data Processing
 The data obtained from the U.S. government website might require some preprocessing to clean and transform it into a suitable format for analysis. SQL queries have been utilized to clean, filter, and transform the data as necessary. This ensures that the data used for the dashboard is accurate and reliable.
 
-## Key Questions Explored
 
-1. **Total Revenue**: Total Revenue generated over the period.
-2. **Average Order Value**: Average order value throughout the year.
-3. **Total Pizza Sold**: Total number of Pizzas sold.
-4. **Total Orders**: Total Orders placed.
-5. **Average Pizzas Per Order**: Average Pizzas ordered per order.
-6. **Daily Trend for Total Orders**: By days of the week, trend for sales throughout the year.
-7. **Monthly Trend for Total Orders**: Monthly Trend for Total Orders to analuze seasonality.
-8. **% of Sales by Pizza Category**: Percentage of total sales, each 4 Categories contributes.
-9. **% of Sales by Pizza Size**: Percentage of total sales, each of 5 sizes Contributes.
-10. **Top 5 Best Sellers by Revenue, Total Quantity & Total Orders**: Top 5 Best selling Pizza by Revenue, Total Quantity & Total Orders.
-11. **5 lowest Sellers by Revenue, Total Quantity & Total Orders**: 5 lowest selling Pizzas by Revenue, Total Quantity & Total Orders.
-12. **Number of Customers each day & Busiest hours**: Number of customer served each day and busy operating hours.
-13. **Average Orders & Pizzaper Day**:Average Orders placed per Day & Pizzas sold per day.
+## Dashboard
+The core component of this project is the interactive dashboard, which provides insightful visualizations of the sales data. The dashboard showcases trends, patterns, and comparisons based on NAICS codes and categories. It allows users to explore the data from different perspectives and gain valuable insights.
 
+## The dashboard features include:
 
+**Overview:** A summary of key performance indicators, such as total sales, top-performing categories, and regional distribution of sales.
 
-## Summary of Findings
+**Sales by NAICS Code:** Visual representations of sales figures for various NAICS codes, allowing users to identify the most significant contributors to overall sales.
 
-- <u>**Most occupied Days & Month**</u>: 
+**Sales by Category:** Graphs and charts illustrating sales for different categories within Retail and Food Services.
 
-- **Days**-Orders are highest on Friday & Saturday evenings 
-- **Month**-Orders are highest on January & July
+**Geographical Analysis:** Maps and charts showing sales distribution across different regions of the U.S.A.
 
-- <u>**Sales Performance**</u>: 
+T**ime Series Analysis:** Trends and seasonal patterns in sales data, helping users to identify patterns over time.
 
-- **Category**-Classical contributes maximum to Sales & Total Orders 
-- **Size**-Large pizza contributes maximum to Sales
+**Filtering and Interactivity:** Interactive elements allowing users to filter data based on specific criteria and perform ad-hoc analysis.
 
-- <u>**Best Sellers**</u>: 
+## Technologies Used
+**SQL:** For data extraction, transformation, and loading into the database.
 
-- **Revenue**-Thai Chicken Pizza contribute maximum to Revenue 
-- **Quantity**-Classical Deluxe Pizza contributes maximum to Total Quantities 
-- **Total Orders**-Classic Deluxe Pizza contributes maximum to Total Orders
+**Database Management System:** PostgreSQL to host and manage the dataset.
 
-- <u>**Lowest Sellers**</u>:
+**Data Visualization Tools:** Power BI for creating the interactive dashboard.
 
-- **Revenue**-Brie Carre Pizza contribute minimum to Revenue 
-- **Quantity**-Brie Carre Pizza contribute minimum to Total Quantities 
-- **Total Orders**-Brie Carre Pizza contribute minimum to Total Orders
+**Programming Languages:** Python & SQL for data processing and scripting.
 
-- <u>**Most occupied Time**</u>:
-- **Lunch**-12 P.M. - 1:30 P.M., **Dinner**-6 P.M. - 8 P.M.
+**How to Use the Dashboard**
+Access the dashboard through a web link or a locally hosted application.
 
+Explore the various visualizations and charts available on the dashboard.
 
+Utilize interactive features like filtering, zooming, and sorting to perform in-depth analysis.
 
+Extract valuable insights from the presented data and use them for informed decision-making.
 
-
-
+**Conclusion**
+The Sales for Retail and Food Services in U.S.A. project provides a comprehensive analysis of sales data within the Retail and Food Services sectors. The use of SQL and data from the U.S. government website ensures data accuracy and reliability. The interactive dashboard offers a user-friendly interface to explore the data visually and gain valuable insights. This project is valuable for businesses, policymakers, and researchers looking to understand and leverage sales trends in the U.S.A.
 
 ## Author
 - <ins><b>©2023 Tushar Aggarwal. All rights reserved</b></ins>
