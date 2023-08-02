@@ -2,13 +2,12 @@
 /* 
 © 2023 Tushar Aggarwal. All rights reserved. github.com/tushar2704
 */
---CREATE DATABASE retail_sales;
 
-DROP SCHEMA IF EXISTS retail_sales;
-CREATE SCHEMA retail_sales;
-SET search_path TO retail_sales;
 
-DROP TABLE IF EXISTS retail_sales;
+CREATE DATABASE retail_sales;
+
+
+
 CREATE TABLE retail_sales (
     id SERIAL PRIMARY KEY,
     month INTEGER NOT NULL,
@@ -20,12 +19,12 @@ CREATE TABLE retail_sales (
 );
 
 COPY retail_sales 
-FROM 'D:\Sales-for-Retail-and-Food-Services\src\data\us_monthly_retail_sales.csv'
+FROM 'D:\Sales-for-Retail-and-Food-Services\src\data\us_monthly_retail_sales_wrangled.csv'
 WITH (FORMAT CSV, HEADER);
 
 UPDATE retail_sales SET sales = NULL WHERE sales = 0;
---Checking for whole Table
-SELECT * FROM retail_sales;
+--Checking for Table
+SELECT * FROM retail_sales LIMIT 50;
 /* 
 © 2023 Tushar Aggarwal. All rights reserved. github.com/tushar2704
 -----------------------------------Loading CSV Completed-------------------------------------------
