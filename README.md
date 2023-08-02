@@ -42,10 +42,6 @@ Pizza Sales Analysis has a comprehensive year's worth of sales data from a ficti
   
 --------
 
-![1](https://github.com/tushar2704/Pizza-Sales-Analysis/assets/66141195/7c8fc5d9-4832-4687-810c-c9431ab12abc)
-![2](https://github.com/tushar2704/Pizza-Sales-Analysis/assets/66141195/1eb157dd-d567-4d35-82ec-56a42e67df8b)
-
-
 
 
 
