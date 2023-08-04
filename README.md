@@ -21,11 +21,11 @@ This project aims to analyze and visualize the sales data for Retail and Food Se
 ## Project Structure
 
     ├── LICENSE
-    ├── README.md          <- README for using this project.
+    ├── README.md          <- README .
     ├── query              <- Code of the DB creation and queries.
     │   │
-    │   └── pizza_sales_db.sql       <- DB creation.
-    │   └── query.sql                <- Final queries.
+    │   └── retail_sales_tables_db.sql       <- DB creation.
+    │   └── query.sql                        <- Final queries.
 
     ├── reports            <- Folder containing the final reports/results of this project.
     │   │
