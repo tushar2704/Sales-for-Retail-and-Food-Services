@@ -45,12 +45,11 @@ To facilitate data management and analysis, a SQL database has been created to s
 
 ## Data Processing
 The data obtained from the U.S. government website might require some preprocessing to clean and transform it into a suitable format for analysis. SQL queries have been utilized to clean, filter, and transform the data as necessary. This ensures that the data used for the dashboard is accurate and reliable.
+![NAICS](https://github.com/tushar2704/Sales-for-Retail-and-Food-Services/assets/66141195/c897f5c5-e4ce-446f-8944-c0c0376fcee9)
 
 
-## Dashboard
-The core component of this project is the interactive dashboard, which provides insightful visualizations of the sales data. The dashboard showcases trends, patterns, and comparisons based on NAICS codes and categories. It allows users to explore the data from different perspectives and gain valuable insights.
 
-## The dashboard features include:
+## Project includes:
 
 **Overview:** A summary of key performance indicators, such as total sales, top-performing categories, and regional distribution of sales.
 
