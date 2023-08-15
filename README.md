@@ -13,11 +13,7 @@
 ## Overview
 This project aims to analyze and visualize the sales data for Retail and Food Services in the U.S.A. The data is sourced from the U.S. government website and has been processed using SQL to create a database for easy management and analysis. The main focus of this project is to explore the sales data based on NAICS (North American Industry Classification System) code and category.
 
-## Reports
-### [Interactive report on Novapro]()
-### [Interactive report on Tushar-Aggarwal.com]()
-### [SQL Queries Report]()
-
+## [Reports](https://github.com/tushar2704/Sales-for-Retail-and-Food-Services/tree/main/reports)
 ## Project Structure
 
     ├── LICENSE
@@ -25,22 +21,17 @@ This project aims to analyze and visualize the sales data for Retail and Food Se
     ├── query              <- Code of the DB creation and queries.
     │   │
     │   └── retail_sales_tables_db.sql       <- DB creation.
-    │   └── query.sql                        <- Final queries.
-
+    │   └── analysis.sql                     <- Final queries.
+    │   └── query_data                       <- Final queries data.
     ├── reports            <- Folder containing the final reports/results of this project.
     │   │
-    │   └── Pizza_Sales_Report.pdf   <- Final analysis report in PDF.
+    │   └── query_report.docx        <- Final analysis report Document.
     │   └── query_report.pdf         <- Final query report in PDF for verifying data.
     │   
     ├── src                <- Source for this project.
         │
         ├── data           <- Datasets used and collected for this project.
-        │   
-        ├── pizza_sales_images       <- Additional images for Dashboards.
-        │
-        ├── data_dictionary.csv      <- Data Dictionary for the dataset.
-
-  
+        
 --------
 
 
@@ -69,7 +60,7 @@ The core component of this project is the interactive dashboard, which provides 
 
 **Geographical Analysis:** Maps and charts showing sales distribution across different regions of the U.S.A.
 
-T**ime Series Analysis:** Trends and seasonal patterns in sales data, helping users to identify patterns over time.
+**Time Series Analysis:** Trends and seasonal patterns in sales data, helping users to identify patterns over time.
 
 **Filtering and Interactivity:** Interactive elements allowing users to filter data based on specific criteria and perform ad-hoc analysis.
 
@@ -78,18 +69,10 @@ T**ime Series Analysis:** Trends and seasonal patterns in sales data, helping us
 
 **Database Management System:** PostgreSQL to host and manage the dataset.
 
-**Data Visualization Tools:** Power BI for creating the interactive dashboard.
 
-**Programming Languages:** Python & SQL for data processing and scripting.
+**Programming Languages:**  SQL for data processing and scripting.
 
-**How to Use the Dashboard**
-Access the dashboard through a web link or a locally hosted application.
 
-Explore the various visualizations and charts available on the dashboard.
-
-Utilize interactive features like filtering, zooming, and sorting to perform in-depth analysis.
-
-Extract valuable insights from the presented data and use them for informed decision-making.
 
 **Conclusion**
 The Sales for Retail and Food Services in U.S.A. project provides a comprehensive analysis of sales data within the Retail and Food Services sectors. The use of SQL and data from the U.S. government website ensures data accuracy and reliability. The interactive dashboard offers a user-friendly interface to explore the data visually and gain valuable insights. This project is valuable for businesses, policymakers, and researchers looking to understand and leverage sales trends in the U.S.A.
@@ -104,205 +87,4 @@ The Sales for Retail and Food Services in U.S.A. project provides a comprehensiv
 ## Contact me!
 
 If you have any questions, suggestions, or just want to say hello, you can reach out to us at [Tushar Aggarwal](mailto:info@tushar-aggarwal.com). We would love to hear from you!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
